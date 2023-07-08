@@ -29,7 +29,8 @@ The Libraries used to implement the same are :
               i)   layer : Here, we gave the LSTM layer as the argument.
               ii)  input_shape
 5. Tensorflow : Imported tensorflow.keras.utils and set random_seed(1) to save the set of random values generated due to the Stochastic                    nature of the optimisation techniques.
-Instruction : 1. Imported the dataset and the actual values.
+
+Instructions :1. Imported the dataset and the actual values.
               2. Split the sequence in an input/output form using the split_sequence define in the code.
               3. Applied various LSTM architectures like : Vanilla LSTM , Stacked LSTM, Bidirectional LSTM
               4. Among all the LSTMs, Bidirectional LSTM gave the most accurate result.
