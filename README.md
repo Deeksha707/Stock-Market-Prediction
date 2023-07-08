@@ -11,10 +11,27 @@ In practice, LSTMs are implemented as layers in a neural network, with each LSTM
 In this project, we have used bi-directional LSTMs to predict the Closing price of the next two days.
 What are Bi-Directional LSTMs?
 Bi-directional LSTMs (BiLSTMs) are an extension of the standard LSTM architecture that take into account both past and future information when making predictions. While regular LSTMs process sequences in a forward manner, from the beginning to the end, BiLSTMs process the sequence in both directions simultaneously. 
-In a BiLSTM, the input sequence is divided into two parts: the forward sequence, which goes from the beginning to the end, and the backward sequence, which goes from the end to the beginning. Each part is processed independently by separate LSTM layers. The outputs from the two layers at each time step are then combined, usually by concatenation or addition, to form the final representation for that time step.
+In a Bidirectional LSTM, the input sequence is divided into two parts: the forward sequence, which goes from the beginning to the end, and the backward sequence, which goes from the end to the beginning. Each part is processed independently by separate LSTM layers. The outputs from the two layers at each time step are then combined, usually by concatenation or addition, to form the final representation for that time step.
 The advantage of BiLSTMs is that they can capture context from both the past and the future of each time step in the input sequence. For example, in natural language processing tasks like sentiment analysis, understanding the context both before and after a particular word can help better determine its sentiment. Similarly, in speech recognition tasks, knowing the context before and after a certain audio segment can improve the accuracy of phoneme or word recognition.
 During training, the BiLSTM is usually fed with the entire sequence at once, and the backward pass through the network is performed by backpropagating the gradients from the final output to the initial time step. This process allows the BiLSTM to update its parameters based on the information from both directions.
 While BiLSTMs are powerful for many sequence-to-sequence tasks, they come at the cost of increased computational complexity due to the bidirectional nature. This means that training a BiLSTM model can be more computationally intensive compared to a traditional unidirectional LSTM. However, the improved performance in tasks that benefit from bidirectional context often justifies this computational overhead.
-
-
-
+The Libraries used to implement the same are :
+1. Numpy : For Array Operations
+2. Pandas : For Data manipulation and analysis
+3. Sklearn : Imported sklearn.metrices.r2_score to calculate the R2 Score to know the model's accuracy
+4. Keras : a) Imported the keras.models.Sequential to create deep learning models where an instance of the Sequential class is created and                model layers are created and added to it
+           b) Imported keras.layers.LSTM to implement the LSTM model with the following arguments :
+              i)   unit : Positive integer, dimensionality of the output space
+              ii)  activation : Activation function to use. Here, we used ReLU (Rectified Linear Unit) as the activation function.
+                                Default function is tanh.
+           c) Imported keras.layers.Dense to create a deeply connected neural network layer with the argument as unit , which is a positive               integer, dimensionality of the output space 
+           d) Imported keras.layers.Bidirectional with the arguments as :
+              i)   layer : Here, we gave the LSTM layer as the argument.
+              ii)  input_shape
+5. Tensorflow : Imported tensorflow.keras.utils and set random_seed(1) to save the set of random values generated due to the Stochastic                    nature of the optimisation techniques.
+Instruction : 1. Imported the dataset and the actual values.
+              2. Split the sequence in an input/output form using the split_sequence define in the code.
+              3. Applied various LSTM architectures like : Vanilla LSTM , Stacked LSTM, Bidirectional LSTM
+              4. Among all the LSTMs, Bidirectional LSTM gave the most accurate result.
+   
+   
